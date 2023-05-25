@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="Quiz.Views.AnswerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quiz.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid Margin="120 80 120 50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--Question-->
+        <Border Grid.Column="0" Grid.Row="0" CornerRadius="15" Background="#56667f" Margin="15 10" Grid.ColumnSpan="2">
+            <StackPanel Margin="30 5" VerticalAlignment="Center">
+                <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Questions[0].Question}"
+                         FontSize="38" VerticalAlignment="Center" BorderThickness="0" FontWeight="Medium" IsReadOnly="True" Background="#56667f" Foreground="#fff"/>
+            </StackPanel>
+        </Border>
+
+        <!--A-->
+        <Button Foreground="#ffffff" BorderThickness="0" Margin="0 0 0 0" Cursor="Hand" 
+                FontSize="38" FontWeight="Medium" FontFamily="Inter"
+                Grid.Column="0" Grid.Row="1" Command="{Binding NextQuestionCommand}"
+                CommandParameter="0"
+                Height="180" Width="480" Content="{Binding AnswerA.Answer}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#374151"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#aab4c5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!--B-->
+        <Button Foreground="#ffffff" BorderThickness="0" Margin="0 0 0 0" Cursor="Hand"
+                FontSize="38" FontWeight="Medium" FontFamily="Inter"
+                Grid.Column="1" Grid.Row="1" Command="{Binding NextQuestionCommand}"
+                CommandParameter="1"
+                Height="180" Width="480" Content="{Binding AnswerB.Answer}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#374151"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#aab4c5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!--C-->
+        <Button Foreground="#ffffff" BorderThickness="0" Margin="0 0 0 0" Cursor="Hand"
+                FontSize="38" FontWeight="Medium" FontFamily="Inter"
+                Grid.Column="0" Grid.Row="2" Command="{Binding NextQuestionCommand}"
+                CommandParameter="2"
+                Height="180" Width="480" Content="{Binding AnswerC.Answer}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#374151"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#aab4c5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!--D-->
+        <Button Foreground="#ffffff" BorderThickness="0" Margin="0 0 0 0" Cursor="Hand"
+                FontSize="38" FontWeight="Medium" FontFamily="Inter" 
+                Grid.Column="1" Grid.Row="2" Command="{Binding NextQuestionCommand}"
+                CommandParameter="3"
+                Height="180" Width="480" Content="{Binding AnswerD.Answer}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#374151"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#aab4c5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+
+        <!--Finish-->
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Button Foreground="#ffffff" BorderThickness="0" Margin="0 5 0 0" Cursor="Hand"
+                FontSize="32" FontWeight="Medium" FontFamily="Inter"
+                Content="Finish" Height="60" Width="150"
+                Command="{Binding FinishQuizzCommand}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#374151"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#aab4c5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Border CornerRadius="15" Background="#374151" Margin="15 5 0 0" Grid.ColumnSpan="2" Width="150" Height="60">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 5 0 0">
+                    <TextBlock Text="{Binding Time}" Foreground="#ffffff" FontFamily="Inter" FontSize="32" FontWeight="Light" TextAlignment="Left"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

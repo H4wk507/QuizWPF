@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="Quiz.Views.ResultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quiz.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Score-->
+        <StackPanel Grid.Row="0" Margin="0 40 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border CornerRadius="15" Background="#374151" Margin="55" HorizontalAlignment="Center" Width="900">
+                <StackPanel Orientation="Horizontal" Margin="25 20">
+                    <TextBlock Text="{Binding Result}" FontSize="42" 
+                             Width="850" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#ffffff" FontWeight="SemiBold" FontFamily="Inter"/>
+                </StackPanel>
+            </Border>
+            <Border CornerRadius="15" Background="#374151" Margin="0 -45 0 0 " HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="10 5">
+                    <TextBlock Text="{Binding Time}" FontSize="28" FontWeight="Light" FontFamily="Inter"
+                               HorizontalAlignment="Center" TextAlignment="Center" Foreground="#ffffff"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!--Buttons-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 60">
+            <Button Foreground="#ffffff" BorderThickness="0" Margin="0 0 30 0" Cursor="Hand"
+                FontSize="64" FontWeight="Light" FontFamily="Inter"
+                Grid.Column="0" Content="Main" Height="200" Width="400" Command="{Binding NavigateToMainCommand}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#374151"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#aab4c5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Foreground="#ffffff" BorderThickness="0" Margin="30 0 0 0" Cursor="Hand"
+                    FontSize="64" FontWeight="Light" FontFamily="Inter" 
+                    Grid.Column="1" Content="Search" Height="200" Width="400" Command="{Binding NavigateToSearchCommand}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#374151"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#aab4c5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
